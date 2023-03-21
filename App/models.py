@@ -4,7 +4,7 @@ from django.db import models
 
 class NoticiaBlog(models.Model):
     TipoNoticia = (
-    ('animales','Animales'),
+    ('mascotas','Mascotas'),
     ('viajes','Viajes'),
     ('tecnologia','Tecnologia'),
     ('entrenamiento','Entrenamiento'),
