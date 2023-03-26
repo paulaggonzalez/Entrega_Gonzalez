@@ -1,0 +1,22 @@
+{% extends 'App/index.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+<div class="container px-4 px-lg-5 text-center">
+
+    <form method="post" enctype="multipart/form-data">
+
+        <br>
+        <br>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+    <button type="submit" id="submit" class="btn btn-primary btn-xs text-uppercase" data-bs-dismiss="modal" type="button">Enviar Arreglos</button>
+    <br>
+    <br>
+    <br>
+    </form>
+
+
+</div>
+{% endblock %}

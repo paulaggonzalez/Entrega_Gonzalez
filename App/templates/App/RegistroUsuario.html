@@ -33,7 +33,12 @@
                         {% csrf_token %}
                         {{form.as_p}}
 
-                        <button type = "submit" id="submit">Registro</button>
+                        <button type = "submit" id="submit" class="btn btn-primary btn-lg">Registrarse</button>
+
+                        <br>
+                        <br>
+
+                        <a class="btn btn-primary btn-lg" href="{% url 'App:Login' %}">Iniciar Sesion</a>
 
                     </form>
 

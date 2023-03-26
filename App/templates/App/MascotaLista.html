@@ -6,7 +6,7 @@
 <br>
 <br>
 <div class="container text-center">
-    <h1>Mascotas</h1>
+    <h1>MASCOTAS</h1>
 </div>
 
 <br>
@@ -15,15 +15,11 @@
             {% for mascota in mascotas %}
             <div class="col-sm-6 align-items-center">
                 <div class="card-body">
-                    <a href="{% url 'App:mascota' mascota.id %}"><p><img src="{{mascota.imagen.url}}" width="200" height="200" alt=""></p></a>
-                    <h4>{{mascota.autor}}</h4>
-                    <h3>${{mascota.encabezado}}</h3>
+                    <a href="{% url 'App:mascota' mascota.id %}"><p><img src="{{mascota.imagenNoticias.url}}" width="200" height="200" alt=""></p></a>
+                    <h3>{{mascota.encabezado}}</h3>
+                    <p>{{mascota.autor}}</p>
+                    <p>{{mascota.fechaCreacion}}</p>
                     <div class="card-body">
-                    <a href="{% url 'App:mascota' mascota.id %}"><button type="submit" id="submit" class="btn btn-primary btn-lg text-uppercase" data-bs-dismiss="modal" type="button">
-                        VER
-                    </button></a><i class="bi bi-eye">&ensp;&ensp;</i></a>
-                    <br>
-                    <br>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,33 @@
+{% extends 'App/index.html' %}
+    {% load static %}
+{% block contenidoQueCambia %}
+
+<br>
+<br>
+
+<div class="container text-center">
+
+    <p><h1>Articulo - {{mascota.encabezado}}</h1></p>
+    <br>
+    <br>
+    {% if mascota.imagenNoticias %}
+        <p><img src="{{mascota.imagenNoticias.url}}" width="500" height="500" alt=""></p>
+    {% endif %}
+    <br>
+    <p><h4>Autor: </h4>{{mascota.autor}}</p>
+    <p><h4>Fecha de Creacion:</h4>{{mascota.fechaCreacion}}</p>
+    <p><h4>Descripcion:</h4>{{mascota.descripcion}}</p>
+    <br>
+    <br>
+    {% if request.user.is_superuser %}
+    <a href="{% url 'App:Mascota_Delete' mascota.id %}"><button type="submit" id="submit" class="btn btn-danger btn-xl text-uppercase" data-bs-dismiss="modal" type="button">Borrar Noticia</button></a>
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    <a href="{% url 'App:Mascota_Edit' mascota.id %}"><button type="submit" id="submit" class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">Editar Noticia</button></a>
+    {% endif %}
+    
+</div>
+<br>
+<br>
+{% endblock %}

@@ -23,35 +23,27 @@
         <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
         <nav id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand"><a href="#page-top">Actuality Blog</a></li>
-                <li class="sidebar-nav-item"><a href="#perfil">Perfil</a></li>
+                <li class="sidebar-nav-item"><a href="{% url 'App:Inicio' %}">Inicio</a></li>
+                {% if request.user.is_authenticated %}
+                <li class="sidebar-nav-item"><a href="{% url 'App:EditUser' %}">Editar Perfil</a></li>
+                <li class="sidebar-nav-item"><a href="{% url 'App:EditPass' %}">Cambiar Contraseña</a></li>
+                {% endif %}
                 <li class="sidebar-nav-item"><a href="#about">Acerca de mi</a></li>
                 <li class="sidebar-nav-item"><a href="#portfolio">Blogs</a></li>
-                <li class="sidebar-nav-item"><a href="#services">Editar Perfil</a></li>
-                <li class="sidebar-nav-item"><a href="#contact">Cerrar Sesion</a></li>
+                <li class="sidebar-nav-item"><a href="{% url 'App:Logout' %}">Cerrar Sesion</a></li>
             </ul>
         </nav>
-        <!-- Header-->
+        <!-- Perfil-->
         <header class="masthead d-flex align-items-center">
             <div class="container px-4 px-lg-5 text-center">
                 <h1 class="mb-1">Actuality Blog </h1>
-                <h3 class="mb-5"><em>Bienvenido (a) a conocer el nuevo mundo</em></h3>
-                <a class="btn btn-primary btn-xl" href="{% url 'App:Register' %}">Registrarse</a>
-                <a class="btn btn-primary btn-xl" href="{% url 'App:Login' %}">Iniciar Sesion</a>
+                <h3 class="mb-5"><em>Bienvenido(a) a conocer el nuevo mundo</em></h3>
+                <h3 class="mb-5"><em>Bienvenido/a: {{request.user.first_name}}  </em></h3>
             </div>
         </header>
-        <!-- Perfil-->
-        <section class="content-section bg-light" id="perfil"></section>
-            <header class="masthead d-flex align-items-center">
-                <div class="container px-4 px-lg-5 text-center">
-                    <h1 class="mb-1">Actuality Blog </h1>
-                    <h3 class="mb-5"><em>Bienvenido (a) a conocer el nuevo mundo</em></h3>
-                    <a class="btn btn-primary btn-xl" href="{% url 'App:EditUser' %}">Editar Perfil</a>
-                    <a class="btn btn-primary btn-xl" href="{% url 'App:EditPass' %}">Cambiar Contraseña</a>
-                </div>
-            </header>
-        </section>
         <!-- Inicio-->
+        {% block contenidoQueCambia %}
+        {% endblock %}
         <section class="content-section bg-light" id="about">
             <div class="container px-4 px-lg-5 text-left">
                     <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
@@ -90,10 +82,11 @@
             <div class="container px-4 px-lg-5">
                 <div class="content-section-heading text-center">
                     <h3 class="text-secondary mb-0">Actuality Blog's</h3>
-                    <h2 class="mb-5">Escoge el tema del cual quisiera saber más ...</h2>
+                    <br>
+                    <h2 class="mb-5">Escoge el tema del cual quisieras saber más...</h2>
                 </div>
                 <div class="row gx-0">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6" >
                         <a class="portfolio-item" href="{% url 'App:mascotas' %}">
                             <div class="caption">
                                 <div class="caption-content">
@@ -101,7 +94,7 @@
                                     <p class="mb-0">"Los ojos de un animal tienen el poder de hablar un gran lenguaje" Martin Buber.</p>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="{% static 'App/assets/img/mascotas-1.jpg' %}" width="700" height="450" alt="" />
+                            <img src="{% static 'App/assets/img/mascotas-1.jpg' %}" width="522" height="350" alt="" />
                         </a>
                     </div>
                     <div class="col-lg-6">
@@ -112,7 +105,7 @@
                                     <p class="mb-0">"Viajar te deja sin palabras y después te convierte en un narrador de historias" Ibn Battuta.</p>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="{% static 'App/assets/img/viajes-1.jpg' %}" width="700" height="450" alt="..." />
+                            <img src="{% static 'App/assets/img/viajes-1.jpg' %}" width="522" height="350" alt="..." />
                         </a>
                     </div>
                     <div class="col-lg-6">
@@ -123,7 +116,7 @@
                                     <p class="mb-0">“El movimiento es una medicina para crear el cambio físico, emocional y mental.” Carol Welch.</p>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="{% static 'App/assets/img/entrenamiento-1.jpg' %}" width="700" height="450" alt="..." />
+                            <img src="{% static 'App/assets/img/entrenamiento-1.jpg' %}" width="522" height="350" alt="..." />
                         </a>
                     </div>
                     <div class="col-lg-6">
@@ -134,76 +127,27 @@
                                     <p class="mb-0">“La conectividad es un derecho humano” Mark Zuckerberg.</p>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="{% static 'App/assets/img/tecnologia-1.jpg' %}" alt="..." />
+                            <img src="{% static 'App/assets/img/tecnologia-1.jpg' %}" width="522" height="350" alt="..." />
                         </a>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Services-->
-        <section class="content-section bg-primary text-white text-center" id="services">
-            <div class="container px-4 px-lg-5">
-                <div class="content-section-heading">
-                    <h3 class="text-secondary mb-0">Services</h3>
-                    <h2 class="mb-5">What We Offer</h2>
-                </div>
-                <div class="row gx-4 gx-lg-5">
-                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-screen-smartphone"></i></span>
-                        <h4><strong>Responsive</strong></h4>
-                        <p class="text-faded mb-0">Looks great on any screen size!</p>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-pencil"></i></span>
-                        <h4><strong>Redesigned</strong></h4>
-                        <p class="text-faded mb-0">Freshly redesigned for Bootstrap 5.</p>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-like"></i></span>
-                        <h4><strong>Favorited</strong></h4>
-                        <p class="text-faded mb-0">
-                            Millions of users
-                            <i class="fas fa-heart"></i>
-                            Start Bootstrap!
-                        </p>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-mustache"></i></span>
-                        <h4><strong>Question</strong></h4>
-                        <p class="text-faded mb-0">I mustache you a question...</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Call to Action-->
-        <section class="content-section bg-primary text-white">
-            <div class="container px-4 px-lg-5 text-center">
-                <h2 class="mb-4">The buttons below are impossible to resist...</h2>
-                <a class="btn btn-xl btn-light me-4" href="#!">Click Me!</a>
-                <a class="btn btn-xl btn-dark" href="#!">Look at Me!</a>
-            </div>
-        </section>
-        <!-- Map-->
-        <div class="map" id="contact">
-            <iframe src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
-            <br />
-            <small><a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a></small>
-        </div>
         <!-- Footer-->
         <footer class="footer text-center">
             <div class="container px-4 px-lg-5">
                 <ul class="list-inline mb-5">
                     <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-facebook"></i></a>
+                        <a class="social-link rounded-circle text-white mr-3" href="https://www.facebook.com/Gonzalez.Paula26?mibextid=ZbWKwL"><i class="icon-social-facebook"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-twitter"></i></a>
+                        <a class="social-link rounded-circle text-white mr-3" href="https://www.instagram.com/paugonzalez_24/"><i class="icon-social-instagram"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white" href="#!"><i class="icon-social-github"></i></a>
+                        <a class="social-link rounded-circle text-white" href="https://github.com/paulaggonzalez"><i class="icon-social-github"></i></a>
                     </li>
                 </ul>
-                <p class="text-muted small mb-0">Copyright &copy; Your Website 2022</p>
+                <p class="text-muted small mb-0">Copyright &copy; Paula Gonzalez 2023</p>
             </div>
         </footer>
         <!-- Scroll to Top Button-->

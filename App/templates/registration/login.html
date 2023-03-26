@@ -24,7 +24,6 @@
             <div class="container px-4 px-lg-5 text-center">
                 <h1 class="mb-1">Actuality Blog </h1>
                 <br>
-                <h2 class="mb-1"> Bienvendio (a): </h2>
                 <br>
                 {% block content %}
 
@@ -32,7 +31,13 @@
                         {% csrf_token %}
                         {{form.as_p}}
 
-                        <button type = "submit" id="submit">Inicio Sesion</button>
+                        <br>
+                        <button type = "submit" id="submit" class="btn btn-primary btn-lg">Iniciar Sesion</button>
+
+                        <br>
+                        <br>
+
+                        <a class="btn btn-primary btn-lg" href="{% url 'App:Register' %}">Registrarse</a>
 
                     </form>
 

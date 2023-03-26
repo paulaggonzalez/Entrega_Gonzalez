@@ -5,9 +5,9 @@ from django.contrib.auth.views import LoginView,LogoutView
 
 app_name = 'App'
 urlpatterns = [
-    path('', views.inicio, name='Inicio'),
+    path('', views.Inicio.as_view(), name='Inicio'),
     path('register', views.register, name='Register'),
-    path('login/',LoginView.as_view(template_name='App/login.html'), name='Login'),
+    path('login/',LoginView.as_view(template_name='registration/login.html'), name='Login'),
     path('logout',LogoutView.as_view(template_name='App/logout.html'), name='Logout'),
     path('newblog',views.NuevoBlogs.as_view(), name='Newblog'),
     path('editUser',views.editUser.as_view(), name='EditUser'),
