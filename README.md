@@ -12,4 +12,7 @@ Al comprobarse que las credenciales están en la base de datos, el usuario podr�
 Cabe aclarar que alguna modificación que se requiere o eliminar algún blog publicado, solo se puede realizar con el usuario administrador, el cual adjunto los datos a continuación:
 
 Usuario: pgonzalez
+
 Contraseña: Coder123
+
+Adjunto Link del Video: https://youtu.be/zjDKAdr2mzo
