@@ -1,6 +1,6 @@
 Proyecto Final Python - Coder House
 Nombre del Proyecto: Actuality Blog’s
-Desarrollado por: Paula Ginette González Torres 
+Desarrollado por: Paula Ginette González Torres
 Versión 1.0
 
 Descripción del Proyecto.
