@@ -22,16 +22,16 @@
         <!-- Header-->
         <header class="masthead d-flex align-items-center">
             <div class="container px-4 px-lg-5 text-center">
-                <h1 class="mb-1">Actuality Blog </h1>
-                <br>
-                <h2 class="mb-1"> Crear un nuevo Blog </h2>
+                <h2 class="mb-1"> CREAR UN NUEVO BLOG </h2>
                 <br>
                 {% block content %}
 
                     <form class ="form" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{form.as_p}}
-                        <button type = "submit" id="submit">Crear</button>
+
+                        <button type="submit" id="submit" class="btn btn-primary btn-lg text-uppercase" data-bs-dismiss="modal" type="button">Crear</button>
+
 
                     </form>
 

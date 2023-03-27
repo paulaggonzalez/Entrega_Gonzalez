@@ -16,5 +16,17 @@ urlpatterns = [
     path('mascotaDetalle/<int:pk>/', views.mascotaDetalle.as_view(), name='mascota'),
     path('mascotaEdicion/<int:pk>/', views.mascotaUpdate.as_view(), name='Mascota_Edit'),
     path('mascotaBorrado/<int:pk>/', views.mascotaDelete.as_view(), name='Mascota_Delete'),
+    path('viajeLista/', views.viajeLista.as_view(), name='viajes'),
+    path('viajeDetalle/<int:pk>/', views.viajeDetalle.as_view(), name='viaje'),
+    path('viajeEdicion/<int:pk>/', views.viajeUpdate.as_view(), name='Viaje_Edit'),
+    path('viajeBorrado/<int:pk>/', views.viajeDelete.as_view(), name='Viaje_Delete'),
+    path('entrenamientoLista/', views.entrenamientoLista.as_view(), name='entrenamientos'),
+    path('entrenamientoDetalle/<int:pk>/', views.entrenamientoDetalle.as_view(), name='entrenamiento'),
+    path('entrenamientoEdicion/<int:pk>/', views.entrenamientoUpdate.as_view(), name='Entrenamiento_Edit'),
+    path('entrenamientoBorrado/<int:pk>/', views.entrenamientoDelete.as_view(), name='Entrenamiento_Delete'),
+    path('tecnologiaLista/', views.tecnologiaLista.as_view(), name='tecnologias'),
+    path('tecnologiaDetalle/<int:pk>/', views.tecnologiaDetalle.as_view(), name='tecnologia'),
+    path('tecnologiaEdicion/<int:pk>/', views.tecnologiaUpdate.as_view(), name='Tecnologia_Edit'),
+    path('tecnologiaBorrado/<int:pk>/', views.tecnologiaDelete.as_view(), name='Tecnologia_Delete'),
 
 ]

@@ -1,0 +1,30 @@
+{% extends 'App/index.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+<br>
+<br>
+<br>
+<div class="container text-center">
+    <h1>ENTRENAMIENTO</h1>
+</div>
+
+<br>
+<div class="container text-center">
+    <div class="row">
+            {% for entrenamiento in entrenamientos %}
+            <div class="col-sm-6 align-items-center">
+                <div class="card-body">
+                    <a href="{% url 'App:entrenamiento' entrenamiento.id %}"><p><img src="{{entrenamiento.imagenNoticias.url}}" width="200" height="200" alt=""></p></a>
+                    <h3>{{entrenamiento.encabezado}}</h3>
+                    <p>{{entrenamiento.autor}}</p>
+                    <p>{{entrenamiento.fechaCreacion}}</p>
+                    <div class="card-body">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

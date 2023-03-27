@@ -11504,8 +11504,8 @@ footer.footer .social-link:hover {
 }
 .portfolio-item .caption {
   display: flex;
-  height: 50%;
-  width: 50%;
+  height: 100%;
+  width: 100%;
   background-color: rgba(33, 37, 41, 0.2);
   position: absolute;
   top: 0;

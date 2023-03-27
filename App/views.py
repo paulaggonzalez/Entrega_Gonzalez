@@ -74,3 +74,72 @@ class mascotaDelete(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('App:mascotas')
     context_object_name = 'mascota'
     template_name = 'App/MascotaBorrado.html'
+
+class viajeLista(LoginRequiredMixin, ListView):
+    context_object_name = 'viajes'
+    queryset = NoticiaBlog.objects.filter(categoriaN__startswith='viajes')
+    template_name = 'App/ViajeLista.html'
+
+class viajeDetalle(LoginRequiredMixin, DetailView):
+    model = NoticiaBlog
+    context_object_name = 'viaje'
+    template_name = 'App/ViajeDetalle.html'
+
+class viajeUpdate(LoginRequiredMixin, UpdateView):
+    model = NoticiaBlog
+    form_class = NuevoBlog
+    success_url = reverse_lazy('App:viajes')
+    context_object_name = 'viaje'
+    template_name = 'App/ViajeEdicion.html'
+
+class viajeDelete(LoginRequiredMixin, DeleteView):
+    model = NoticiaBlog
+    success_url = reverse_lazy('App:viajes')
+    context_object_name = 'viaje'
+    template_name = 'App/ViajeBorrado.html'
+
+class entrenamientoLista(LoginRequiredMixin, ListView):
+    context_object_name = 'entrenamientos'
+    queryset = NoticiaBlog.objects.filter(categoriaN__startswith='entrenamiento')
+    template_name = 'App/EntrenamientoLista.html'
+
+class entrenamientoDetalle(LoginRequiredMixin, DetailView):
+    model = NoticiaBlog
+    context_object_name = 'entrenamiento'
+    template_name = 'App/EntrenamientoDetalle.html'
+
+class entrenamientoUpdate(LoginRequiredMixin, UpdateView):
+    model = NoticiaBlog
+    form_class = NuevoBlog
+    success_url = reverse_lazy('App:entrenamientos')
+    context_object_name = 'entrenamiento'
+    template_name = 'App/EntrenamientoEdicion.html'
+
+class entrenamientoDelete(LoginRequiredMixin, DeleteView):
+    model = NoticiaBlog
+    success_url = reverse_lazy('App:entrenamientos')
+    context_object_name = 'entrenamiento'
+    template_name = 'App/EntrenamientoBorrado.html'
+
+class tecnologiaLista(LoginRequiredMixin, ListView):
+    context_object_name = 'tecnologias'
+    queryset = NoticiaBlog.objects.filter(categoriaN__startswith='tecnologia')
+    template_name = 'App/TecnologiaLista.html'
+
+class tecnologiaDetalle(LoginRequiredMixin, DetailView):
+    model = NoticiaBlog
+    context_object_name = 'tecnologia'
+    template_name = 'App/TecnologiaDetalle.html'
+
+class tecnologiaUpdate(LoginRequiredMixin, UpdateView):
+    model = NoticiaBlog
+    form_class = NuevoBlog
+    success_url = reverse_lazy('App:tecnologias')
+    context_object_name = 'tecnologia'
+    template_name = 'App/TecnologiaEdicion.html'
+
+class tecnologiaDelete(LoginRequiredMixin, DeleteView):
+    model = NoticiaBlog
+    success_url = reverse_lazy('App:tecnologias')
+    context_object_name = 'tecnologia'
+    template_name = 'App/TecnologiaBorrado.html'

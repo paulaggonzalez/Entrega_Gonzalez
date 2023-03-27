@@ -1,0 +1,23 @@
+{% extends 'App/index.html' %}
+    {% load static %}
+{% block contenidoQueCambia %}
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="container text-center">
+    <form method="post">
+        {% csrf_token %}
+        <h1>Estás seguro(a) que deseas borrar la Noticia - {{entrenamiento.encabezado}} del Autor - {{entrenamiento.autor}}?</h1>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-danger btn-xl text-uppercase">BORRAR</button>
+        <br>
+        <br>
+        <br>
+    </form>
+</div>
+
+{% endblock %}
